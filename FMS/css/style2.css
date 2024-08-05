@@ -1,0 +1,712 @@
+/* =========== Google Fonts ============ */
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap");
+
+/* =============== Globals ============== */
+* {
+  font-family: "Ubuntu", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  
+}
+
+:root {
+  --green: #436850;
+  --white: #fff;
+  --gray: #f5f5f5;
+  --black1: #121212;
+  --black2: #999;
+  --primary-color: #12372A; /* Dark Green - Primary Color */
+  --secondary-color: #436850; /* Green - Secondary Color */
+  --tertiary-color: #ADBC9F; /* Light Green - Tertiary Color */
+  --quaternary-color: #D1DCC2;
+  --background-color: white; /* Cream - Background Color */
+  --lightred: #e57373;
+  --orange: #686243;
+}
+
+ol, ul {
+  padding-left: 14px !important;
+} 
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.my-container {
+  position: relative;
+  width: 100%;
+}
+
+
+/* =============== Navigation ================ */
+.my-navigation {
+  position: fixed;
+  width: 300px;
+  height: 100%;
+  background: var(--green);
+  transition: 0.5s;
+  overflow: hidden;
+  padding: 0; 
+}
+.my-navigation.active {
+  width: 80px;
+}
+
+.my-navigation ul {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.my-navigation ul li {
+  position: relative;
+  width: 100%;
+  list-style: none;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+}
+
+.my-navigation ul li:hover,
+.my-navigation ul li.hovered {
+  background-color: var(--white);
+}
+
+.my-navigation ul li:nth-child(1) {
+  margin-bottom: 20px;
+  pointer-events: none;
+}
+
+.my-navigation ul li a {
+  position: relative;
+  display: block;
+  width: 100%;
+  display: flex;
+  text-decoration: none;
+  color: var(--white);
+}
+.my-navigation ul li:hover a,
+.my-navigation ul li.hovered a {
+  color: var(--green);
+}
+
+.my-navigation ul li a .my-icon {
+  position: relative;
+  display: block;
+  min-width: 55px;
+  height: 55px;
+  line-height: 60px;
+  text-align: center;
+}
+.my-navigation ul li a .my-icon ion-icon {
+  font-size: 1.50rem;
+}
+
+.my-navigation ul li a .my-title {
+  position: relative;
+  display: block;
+  padding: 0 20px;
+  height: 50px;
+  line-height: 50px;
+  text-align: start;
+  white-space: nowrap;
+}
+
+
+/* --------- curve outside ---------- */
+.my-navigation ul li:hover a::before,
+.my-navigation ul li.hovered a::before {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: -50px;
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
+  border-radius: 50%;
+  box-shadow: 35px 35px 0 10px var(--white);
+  pointer-events: none;
+}
+.my-navigation ul li:hover a::after,
+.my-navigation ul li.hovered a::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: -50px;
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
+  border-radius: 50%;
+  box-shadow: 35px -35px 0 10px var(--white);
+  pointer-events: none;
+}
+
+/* ===================== Main ===================== */
+.my-main {
+  position: absolute;
+  width: calc(100% - 200px);
+  left: 200px;
+  min-height: 100vh;
+  background: var(--white);
+  transition: 0.5s;
+}
+.my-main.active {
+  width: calc(100% - 80px);
+  left: 80px;
+}
+
+.my-topbar {
+  width: 100%;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+}
+
+.my-toggle {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5rem;
+  cursor: pointer;
+}
+
+
+.my-user {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+  margin-right: 20px;
+}
+
+
+/* white circle background */
+.my-navigation ul .my-nav-item:first-child a .my-icon {
+  position: relative;
+  display: block;
+  min-width: 55px;
+  height: 55px;
+  line-height: 50px;
+  text-align: center;
+  border-radius: 50%;
+  background-color: var(--white); 
+  margin-top: 5px;
+}
+
+.my-navigation ul .my-nav-item:first-child a .my-icon img {
+  width: 100%;
+  height: 90%;
+  object-fit: cover;
+  border-radius: 50%; 
+}
+
+/* ======================= Cards ====================== */
+.my-cardBox {
+  position: relative;
+  width: 100%;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 30px;
+}
+
+.my-cardBox .my-card {
+  position: relative;
+  background: var(--white);
+  padding: 30px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+  box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+}
+
+.my-cardBox .my-card .numbers {
+  position: relative;
+  font-weight: 500;
+  font-size: 1.50rem;
+  color: var(--green);
+}
+
+.my-cardBox .my-card .cardName {
+  color: var(--black2);
+  font-size: 1rem;
+  margin-top: 5px;
+}
+
+.my-cardBox .my-card .iconBx {
+  font-size: 2.5rem;
+  color: var(--black2);
+}
+
+.my-cardBox .my-card:hover {
+  background: var(--green);
+}
+.my-cardBox .my-card:hover .numbers,
+.my-cardBox .my-card:hover .my-cardName,
+.my-cardBox .my-card:hover .iconBx {
+  color: var(--white);  
+}
+
+/* ==================  Details List ============== */
+
+#chartdash{
+  padding: 20px;
+}
+.my-recentOrders {
+  position: relative;
+  min-height: 500px;
+  background: var(--white);
+  padding: 20px;
+  box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+  border-radius: 20px;
+  z-index: 1; 
+}
+
+.my-cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: 20px;
+  margin-bottom: 10px; 
+  border-bottom: 2px solid var(--green); 
+  padding-bottom: 5px; 
+  height: 50px; 
+}
+
+.my-cardHeader h2 {
+  font-weight: 700;
+  color: var(--green);
+  margin-bottom: 5px; 
+}
+h3{
+  font-weight: 500;
+  color: var(--green);
+  font-size: 1.5rem;
+  margin-bottom: 5px; 
+  overflow: hidden;
+}
+.my-cardHeader .btn {
+  position: relative;
+  padding: 5px 10px;
+  background: var(--green);
+  text-decoration: none;
+  color: var(--white);
+  border-radius: 6px;
+  margin-bottom: 5px; 
+  font-size: 14px;
+}
+
+/* Table Styles */
+.table td,
+.table th {
+    font-size: 14px; /* Adjust the font size as needed */
+}
+
+.my-recentOrders table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.my-recentOrders table thead td {
+  font-weight: 300;
+}
+
+.my-recentOrders table tbody tr {
+  color: var(--black1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.my-recentOrders table tr:last-child {
+  border-bottom: none;
+}
+
+.my-recentOrders table tbody tr:hover {
+  background: var(--tertiary-color);
+  color: var(--white);
+}
+
+.my-recentOrders table tr td {
+  padding: 10px;
+}
+
+.table-responsive {
+  overflow-x: auto;
+  max-width: 100%;
+  padding: 0 15px; 
+  margin-top: 50px;
+}
+
+  /* Scrollbar Styles */
+  .table-responsive::-webkit-scrollbar {
+      width: 10px;
+  }
+
+  .table-responsive::-webkit-scrollbar-track {
+      background: #f1f1f1; 
+  }
+  
+  .table-responsive::-webkit-scrollbar-thumb {
+      background: var(--quaternary-color); 
+  }
+
+  .table-responsive::-webkit-scrollbar-thumb:hover {
+      background: var(--tertiary-color); 
+  }
+
+/*icon */
+.my-settings-icon {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5rem;
+  margin-right: 40px; 
+}
+
+.my-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.my-dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  min-width: 200px; 
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.my-dropdown-content a {
+  color: #000;
+  padding: 12px 16px;
+  display: block;
+  text-decoration: none;
+}
+
+.my-dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+.my-dropdown:hover .my-dropdown-content {
+  display: block;
+}
+
+/* Form container styles */
+.my-form-container {
+  margin-top: 20px;
+  padding: 8px 12px;
+
+  background-color: var(--white);
+  border-radius: 20px;
+  box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+}
+
+/* Form label styles */
+.my-form-container label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+/* Form input styles */
+.my-form-container input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 16px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Button Styles */
+.addCropsBtn,
+.clearFilterBtn,
+.addFieldBtn,
+.editFarmBtn,
+#addActivityBtn,
+.editAccountBtn,
+.addSaleBtn,
+.addHarvestBtn {
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    background-color: var(--green);
+    color: #fff;
+}
+
+.addCropsBtn:hover,
+.clearFilterBtn:hover,
+.addFieldBtn:hover,
+.editFarmBtn:hover,
+#addActivityBtn:hover,
+.editAccountBtn:hover,
+.addSaleBtn:hover,
+.addHarvestBtn:hover {
+    background-color: var(--secondary-color);
+}
+/* Dropdown Styles */
+.dropdown-menu {
+  background-color: var(--green);
+  border: none;
+}
+
+.dropdown-item {
+  color: #fff;
+}
+
+.dropdown-item:hover {
+  background-color: var(--primary-color);
+  color: #fff;
+}
+
+
+/* Dropdown button */
+.my-icon-btn.actionBtn {
+  background-color: var(--secondary-color);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.my-icon-btn.actionBtn:hover {
+  background-color: darken(var(--secondary-color), 10%);
+}
+
+/* Dropdown menu */
+.dropdown-menu {
+  min-width: auto;
+  border-radius: 10px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  background-color: var(--background-color);
+}
+
+.dropdown-menu .dropdown-item {
+  color: var(--primary-color);
+  padding: 10px 20px;
+  font-size: 14px;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+.dropdown-menu .dropdown-item:hover {
+  background-color: var(--secondary-color);
+  color: white;
+}
+
+/* Form button styles */
+.my-form-container button {
+  background-color: var(--green);
+  color: var(--white);
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.my-form-container button:hover {
+  background-color: var(--secondary-color);
+}
+
+/* Action button styles */
+.my-action-icons {
+  display: flex;
+  align-items: center;
+}
+
+.editBtn,
+.deleteBtn,
+.viewActivityBtn,.declineBtn,.approveBtn {
+  padding: 8px 12px;
+  margin-right: 5px;
+  border: none;
+  cursor: pointer;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s ease;
+}
+
+.editBtn {
+  background: #ff8c00;
+  color: #fff;
+}
+
+.deleteBtn,.declineBtn {
+  background: #d32f2f;
+  color: #fff;
+}
+
+.editBtn:hover {
+  background-color: #d17000;
+}
+
+.deleteBtn:hover, .declineBtn:hover{
+  background-color: #b52424;
+}
+
+.viewActivityBtn,.approveBtn {
+  background: var(--secondary-color);
+  color: #fff;
+}
+
+.viewActivityBtn:hover,.approveBtn:hover,
+.viewActivityBtn:active {
+  background-color: var(--primary-color);
+}
+
+/* Modal styles */
+.modal-content {
+  background-color: var(--white);
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.modal-header {
+  background-color: var(--primary-color);
+  color: var(--white);
+  border-bottom: none;
+}
+
+.modal-title {
+  font-weight: bold;
+}
+
+.modal-body {
+  padding: 20px;
+}
+
+.modal-footer {
+  border-top: none;
+}
+
+.btn-secondary,
+.btn-danger {
+  color: var(--white);
+}
+
+.btn-danger {
+  background-color: #d32f2f;
+  border-color: #d32f2f;
+}
+
+.btn-danger:hover {
+  background-color: #b52424;
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  color: var(--white);
+  border-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+  background-color: #0F5033;
+  border-color: #0F5033;
+}
+
+/* Edit Farm Button */
+.editFarmBtn {
+  padding: 8px 12px;
+  border: none;
+  cursor: pointer;
+  background-color: var(--green);
+  color: #fff;
+}
+
+.editFarmBtn:hover {
+  background-color: var(--secondary-color);
+}
+
+
+/* ====================== Responsive Design ========================== */
+@media (max-width: 991px) {
+  .my-navigation {
+    width: 300px;
+    left: 0;
+  }
+  .my-navigation.active {
+    left: -300px;
+  }
+  .my-main {
+    left: 300px;
+  }
+  .my-main.active {
+    width: 100%;
+    left: 0;
+  }
+  .my-cardBox {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .my-cardHeader h3 {
+      font-size: 1.5rem; /* Adjust the font size for smaller screens */
+  }
+  
+
+  
+}
+
+@media (max-width: 768px) {
+  .my-recentOrders {
+    overflow-x: auto;
+    margin-top: 20px;
+  }
+
+}
+
+@media (max-width: 480px) {
+  .my-cardBox {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .my-navigation {
+    width: 300px;
+    left: 0;
+    z-index: 1000;
+    transition: left 0.5s;
+    
+  }
+  .my-navigation.active {
+    left: -300px;
+  }
+  #btnIncome, #btnExpenses, #btnProfitLoss {
+    font-size: 10px; /* Adjust the font size as needed */
+  }
+  #financialSummaryHeading {
+  font-size: 1.25rem; /* Adjust the font size as needed */
+  }
+  .my-toggle {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5rem;
+    cursor: pointer;
+  }
+  #financialSummaryHeading h3 {
+    font-size: 1.1rem;
+  }
+}
